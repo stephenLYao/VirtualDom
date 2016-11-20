@@ -1,0 +1,26 @@
+{
+  "name": "VirtualDom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenLYao/VirtualDom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephenLYao/VirtualDom/issues"
+  },
+  "homepage": "https://github.com/stephenLYao/VirtualDom#readme",
+  "devDependencies": {
+    "react-scripts": "^0.7.0"
+  }
+}
