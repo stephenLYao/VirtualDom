@@ -5,9 +5,6 @@ const Element = (
   props,
   children
 ) => {
-
-  // check key
-  const key = props.key ? props.key : void 233
   // render element
   const element = document.createElement(tagName)
   // set props
