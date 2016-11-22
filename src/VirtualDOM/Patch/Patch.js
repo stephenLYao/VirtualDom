@@ -4,7 +4,7 @@ import {
   PROPS,
   REORDER,
   REPLACE
-} from './Patch'
+} from './PatchType'
 
 // define walker
 let walker = 0
@@ -44,11 +44,11 @@ const applyPatch = (
     case PROPS:
       setProps(node,currentPatch.props)
       break
-    case REORDER:
-      setReorder(node,currentPatch.moves)
-      break
     case REPLACE:
       setReplace(node,currentPatch.node)
+      break
+    case REORDER:
+      setReorder(node,currentPatch.moves)
       break
     default:
       throw new Error('Unknown patch type ' + currentPatch.type)
