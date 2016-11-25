@@ -33,7 +33,13 @@ export const Diff = (
       })
     }
     //diff children
-    diffChildren(prevNode,nextNode,index,patches,currentPatches)
+    const childrenPatches = diffChildren(prevNode,nextNode,index,patches)
+    if(childrenPatches.moves.length){
+      currentPatches.push({
+        type: REORDER,
+        moves: childrenPatches.moves
+      })
+    }
   }else{
     currentPatches.push({
       type: REPLACE,
@@ -48,6 +54,7 @@ export const Diff = (
   return patches
 }
 
+// set diffprops
 const diffProps = (
   prevNode,
   nextNode
