@@ -1,10 +1,10 @@
-"use strict"
 import {
   TEXT,
   PROPS,
   REORDER,
   REPLACE
 } from './PatchType'
+import { createNode } from '../VNode/VNode'
 
 // define walker
 let walker = 0
@@ -83,6 +83,6 @@ const setReplace = (
 ) => {
   const newNode = (typeof patchNode === 'string')
     ? document.createTextNode(patchNode)
-    : patchNode.render()
+    : createNode(node)
   node.parentNode.replaceChild(newNode,node)
 }

@@ -1,4 +1,4 @@
-import { VNode,createNode } from './VirtualDOM/VirtualDOM'
+import './VirtualDOM/Example/increasing'
 
 
 

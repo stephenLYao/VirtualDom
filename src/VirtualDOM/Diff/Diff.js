@@ -33,13 +33,7 @@ export const Diff = (
       })
     }
     //diff children
-    const childrenPatches = diffChildren(prevNode,nextNode,index,patches)
-    if(childrenPatches.moves.length){
-      currentPatches.push({
-        type: REORDER,
-        moves: childrenPatches.moves
-      })
-    }
+    diffChildren(prevNode,nextNode,index,patches,currentPatches)
   }else{
     currentPatches.push({
       type: REPLACE,
@@ -59,5 +53,39 @@ const diffProps = (
   prevNode,
   nextNode
 ) => {
+  const count = 0
+  const prevProps = prevNode.props
+  const nextProps = nextNode.props
+  const propsPatches = {}
 
+  Object.keys(prevProps).forEach(key => {
+    if(nextProps[key] !== prevProps[key]){
+      count++
+      propsPatches[key] = nextProps[key]
+    }
+  })
+
+  Object.keys(nextProps).forEach(key => {
+    if(!prevProps.hasOwnProperty(key)){
+      count++
+      propsPatches[key] = nextProps[key]
+    }
+  })
+
+  if(count === 0) return null
+
+  return propsPatches
+
+}
+
+// set diffChildren
+const diffChildren = (
+  prevNode,
+  nextNode,
+  index,
+  patches,
+  currentPatches
+) => {
+  const diffs = ListDiff(prevNode,nextNode,'key')
+  nextNode = diffs.children
 }
